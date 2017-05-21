@@ -22,7 +22,7 @@ def readConfig():
 def writeConfig(conf):
     config_file = prepareConfigFile()
     with open(config_file, 'w') as output:
-        for key, value in conf.items():
+        for key, value in list(conf.items()):
             output.write('{}={}{}'.format(key, value, '\n'))
 
 def set(kind, email):

@@ -65,7 +65,7 @@ def findSMTPServer(emailDomain):
         Look through all the services to get a domain that matches with emailDomain
         an return a tuple with its smtp hots, and smtp port
     '''
-    for key, service in services.items():
+    for key, service in list(services.items()):
         if emailDomain in service['domains']:
             return service['smtp'], service['port'], service['secure']
 
@@ -85,7 +85,7 @@ def sendMail(conf, message):
         smtp = SMTP_SSL(host, port)
     else:
         smtp = SMTP(host, port)
-        print(smtp.starttls())
+        print((smtp.starttls()))
 
     try:
         smtp.login(conf['from'], conf['pass'])

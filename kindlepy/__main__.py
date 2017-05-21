@@ -67,8 +67,8 @@ def main():
 
         if options['-l'] or options['--list']:
             conf = config.readConfig()
-            for key, value in conf.items():
-                print('{}: {}'.format(key, value))
+            for key, value in list(conf.items()):
+                print(('{}: {}'.format(key, value)))
 
         sys.exit(0)
 
